@@ -13,7 +13,7 @@ class_name = ['T-shirt/top','Trouser','Pullover','Dress','Coat','Sandal','Shirt'
 
 print(class_name[1])
 print(train_lables[1])
-#fgfr
+
 train_images = train_images/255.0
 test_images = test_images/255.0
 
