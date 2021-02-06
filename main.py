@@ -31,7 +31,16 @@ model = keras.Sequential([
 
 model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
-model.fit(train_images, train_lables, epochs=15) # epochs means how many times we want the model to see the input data
+model.fit(train_images, train_lables, epochs=5) # epochs means how many times we want the model to see the input data
 
-test_loss, test_acc = model.evaluate(test_images, test_lables)
-print("Tested Acc:", test_acc)
+#test_loss, test_acc = model.evaluate(test_images, test_lables)
+#print("Tested Acc:", test_acc)
+
+prediction = model.predict(test_images)
+#print(class_name[np.argmax(prediction[0])])
+for i in range(10):
+    plt.grid(False)
+    plt.imshow(test_images[i], cmap=plt.cm.binary)
+    plt.xlabel("Actual:"+class_name[test_lables[i]])
+    plt.title("Prediction:"+class_name[np.argmax(prediction[i])])
+    plt.show()
